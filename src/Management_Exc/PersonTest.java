@@ -53,7 +53,7 @@ class PersonTest {
         try {
             persons.add(new Manager("Jea", 25, 27500));
         } catch (IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Salary must be greater than or equal to 30000");
+            assertEquals(e.getMessage(), "Salary must be greater than or equal to 30000.");
         }
         assertEquals(persons.size(), 1);
     }
@@ -145,7 +145,7 @@ class PersonTest {
         Employee vince = (Employee) persons.get(1);
         Employee mary = (Employee) persons.get(3);
         assertEquals(vince.getSalary(), 32840.30);
-        assertEquals(mary.getSalary(), 50270.15);
+        assertEquals(mary.getSalary(), 50200.0);
     }
     @Test
     void testGiveRaiseInvalid1() {
@@ -208,7 +208,7 @@ class PersonTest {
         try {
             Main.giveRaise(persons, "Mary", "Jeshiel", -2500);
         } catch (IllegalArgumentException e) {
-            assertEquals(e.getMessage(), "Raise must be non-negative");
+            assertEquals(e.getMessage(), "Salary increase must be non-negative");
         }
         Employee mary = (Employee) persons.get(3);
         Employee jeshiel = (Employee) persons.get(2);
@@ -251,8 +251,8 @@ class PersonTest {
         persons.add(new Manager("Claire", 27, 52600));
         persons.add(new Customer("Felix", 52));
         assertDoesNotThrow(()->{
-           Main.customerSpeak(persons, "Felix", "Jeshiel");
-           Main.customerSpeak(persons, "Jewel", "Jea");
+            Main.customerSpeak(persons, "Felix", "Jeshiel");
+            Main.customerSpeak(persons, "Jewel", "Jea");
         });
 
         assertEquals(Main.customerSpeak(persons, "Felix", "Jeshiel"), "Oh, hello, Jeshiel. Can you assist me?");

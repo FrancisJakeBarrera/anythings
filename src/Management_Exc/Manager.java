@@ -12,7 +12,10 @@ public class Manager extends Employee {
      * @throws IllegalArgumentException when raise is negative
      */
     public void giveRaise(Employee e, double raise) {
-
+        if (raise < 0) {
+            throw new IllegalArgumentException("Salary increase must be non-negative.");
+        }
+        e.setSalary(e.getSalary() + raise);
     }
 
     @Override
